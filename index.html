@@ -3,59 +3,28 @@
 <head>
 	<meta charset="utf-8">
 	<title>UX design Berlin</title>
-	<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
 	<script src="jquery-1.10.2.js"></script>
-	<script src="ui/jquery.ui.core.js"></script>
-	<script src="ui/jquery.ui.widget.js"></script>
-	<script src="ui/jquery.ui.accordion.js"></script>
-  	<script src="jquery.slides.min.js"></script>
-  	<script type="text/javascript" src="js/jssor.js"></script>
-    <script type="text/javascript" src="js/jssor.slider.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://stephband.info/jquery.event.move/js/jquery.event.move.js"></script>
+    <script src="http://stephband.info/jquery.event.swipe/js/jquery.event.swipe.js"></script>
+    <script src="http://unslider.com/unslider.min.js"></script> 
 	<link rel="stylesheet" href="demos.css">
+    
+    <style>
+        .slider { position: relative; overflow: auto; }
+        .slider li { list-style: none; }
+        .slider ul li { float: left; }
+        #accordion {width: 100%;}
+    </style>
 	
 	<script>
 	$(function() {
 		$( "#accordion" ).accordion();
 	});
 	</script>
-	
-	
-	
-	<script>
 
-        jQuery(document).ready(function ($) {
-            var options = {
-                $AutoPlay: false,
-
-                $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slideshow is auto playing, default value is false
-
-                $ArrowKeyNavigation: true,   			            //Allows arrow key to navigate or not
-                $SlideWidth: 550,                                   //[Optional] Width of every slide in pixels, the default is width of 'slides' container
-                //$SlideHeight: 300,                                  //[Optional] Height of every slide in pixels, the default is width of 'slides' container
-                $SlideSpacing: 50, 					                //Space between each slide in pixels
-                $DisplayPieces: 1,                                  //Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
-                $ParkingPosition: 50,                                //The offset position to park slide (this options applys only when slideshow disabled).
-
-                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
-                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
-                    $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-                    $AutoCenter: 0,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
-                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
-                }
-            };
-
-            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
-            var jssor_slider2 = new $JssorSlider$("slider2_container", options);
-            var jssor_slider3 = new $JssorSlider$("slider3_container", options);
-            var jssor_slider3 = new $JssorSlider$("slider4_container", options);
-            var jssor_slider3 = new $JssorSlider$("slider5_container", options);
-            var jssor_slider3 = new $JssorSlider$("slider6_container", options);
-            var jssor_slider3 = new $JssorSlider$("slider7_container", options);
-            var jssor_slider3 = new $JssorSlider$("slider8_container", options);
-
-    
-        });
-    </script>
 </head>
 
 <body>
@@ -74,387 +43,125 @@
 	</div>
 	
 	<h3>UX-Process</h3>
-	
-	
-	    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 650px;
-        height: 300px; overflow: hidden;">
-       
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 10px; width: 700px; height: 300px;
-            overflow: hidden;">
-         
-            <div><img u="image" src="UX_me_a.jpg" ></div>
-            <div><img u="image" src="UX_me_b.jpg" ></div>
-            <div><img u="image" src="UX_me_c.jpg" /></div>
-            <div><img u="image" src="UX_me_d.jpg" ></div>
-            <div><img u="image" src="UX_me_e.jpg" ></div>
-            <div><img u="image" src="UX_me_f.jpg" ></div>
-            <div><img u="image" src="UX_me_g.jpg" ></div>
-            <div><img u="image" src="UX_me_h.jpg" ></div>
+	    <div class="slider">
+            <ul>
+                <li><img u="image" src="UX_me_a.jpg" ></li>
+                <li><img u="image" src="UX_me_b.jpg" ></li>
+                <li><img u="image" src="UX_me_c.jpg" ></li>
+                <li><img u="image" src="UX_me_d.jpg" ></li>
+                <li><img u="image" src="UX_me_e.jpg" ></li>
+                <li><img u="image" src="UX_me_f.jpg" ></li>
+                <li><img u="image" src="UX_me_g.jpg" ></li>
+                <li><img u="image" src="UX_me_h.jpg" ></li>
+            </ul>
         </div>
         
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 13 css */
-            /*
-            .jssora13l                  (normal)
-            .jssora13r                  (normal)
-            .jssora13l:hover            (normal mouseover)
-            .jssora13r:hover            (normal mouseover)
-            .jssora13l.jssora13ldn      (mousedown)
-            .jssora13r.jssora13rdn      (mousedown)
-            */
-            .jssora13l, .jssora13r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 50px;
-                cursor: pointer;
-                background: url(a13.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora13l { background-position: -10px -35px; }
-            .jssora13r { background-position: -70px -35px; }
-            .jssora13l:hover { background-position: -130px -35px; }
-            .jssora13r:hover { background-position: -190px -35px; }
-            .jssora13l.jssora13ldn { background-position: -250px -35px; }
-            .jssora13r.jssora13rdn { background-position: -310px -35px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="top: 123px; right: 30px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">js slider</a>
-    </div>
 
 	<h3>www.wecide.org </h3>
-	
-	<div id="slider2_container" style="position: relative; top: 0px; left: 0px; width: 650px;
-        height: 300px; overflow: hidden;">
-       
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 10px; width: 600px; height: 300px;
-            overflow: hidden;">
-         
-            <div>      <p>
-		*alpha live* <a href="http://www.wecide.org" target="_blank"> www.wecide.org </a><br>Over the course of my 6 months at Wecide I worked with the project manager, 
-Jörg Lück, to redevelop this tool for group decision making. Initially, the 
-model was something akin to the Additive Feature Model in psy- chology. Albeit 
-thorough, this model was not conducive for seamless UX. Upon more dissecting, 
-user testing and interviews, I was able to see which features were more 
-accessible. After various iterations and explorations into user flow schemes, 
-the result is a barrier-free tool output- ting a democratic decision.
-		</p></div>
-            <div><img u="image" src="w6.png" ></div>
-            <div><img u="image" src="w7.png" ></div>
-         
+        <div class="slider">
+            <ul>
+               <li>
+                   <p>*alpha live* <a href="http://www.wecide.org" target="_blank"> www.wecide.org </a><br>Over the course of my 6 months at Wecide I worked with the project manager, 
+        Jörg Lück, to redevelop this tool for group decision making. Initially, the 
+        model was something akin to the Additive Feature Model in psy- chology. Albeit 
+        thorough, this model was not conducive for seamless UX. Upon more dissecting, 
+        user testing and interviews, I was able to see which features were more 
+        accessible. After various iterations and explorations into user flow schemes, 
+        the result is a barrier-free tool output- ting a democratic decision.</p>
+                </li>
+                <li><img u="image" src="w6.png" ></li>
+                <li><img u="image" src="w7.png" ></li>
+            </ul>
         </div>
-        
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 13 css */
-            /*
-            .jssora13l                  (normal)
-            .jssora13r                  (normal)
-            .jssora13l:hover            (normal mouseover)
-            .jssora13r:hover            (normal mouseover)
-            .jssora13l.jssora13ldn      (mousedown)
-            .jssora13r.jssora13rdn      (mousedown)
-            */
-            .jssora13l, .jssora13r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 50px;
-                cursor: pointer;
-                background: url(a13.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora13l { background-position: -10px -35px; }
-            .jssora13r { background-position: -70px -35px; }
-            .jssora13l:hover { background-position: -130px -35px; }
-            .jssora13r:hover { background-position: -190px -35px; }
-            .jssora13l.jssora13ldn { background-position: -250px -35px; }
-            .jssora13r.jssora13rdn { background-position: -310px -35px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="top: 123px; right: 30px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">js slider</a>
-    </div>
-	
             
             
 	<h3>Party Haus</h3>
-	
-		
-	<div id="slider3_container" style="position: relative; top: 0px; left: 0px; width: 100%;
-        height: 300px; overflow: hidden;">
-       
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 10px; width: 700px; height: 300px;
-            overflow: hidden;">
-         
-            <div><p>
-		Party Haus was a project conceived at <a href="http://news.immobilienscout24.de/tipps-der-redaktion/you-is-now-weekend-future-real-estate-hackathon-am-272829-maerz-2015,117079.html" target="_blank"> immobilienscout24.de </a>
-		hackathon weekend. With a team of developers and myself, we created a webtool that 
-		would sort through real estate to discover properties with high party potential.
-		 Pulling on several APIs, 
-		we developed a custom, sortable party checklist for your new apartment. 
-		I was responsible for the overall User experience and the interface. 
-		Our team won a main prize-- a full scholarship to the <a href="http://fi.co/">Founder's Institute.</a> </p></div>
-            <div><img u="image" src="party_haus_a.jpg" ></div>
-            <div><img u="image" src="party_haus_b.jpg" ></div>
-         
+        <div class="slider">
+            <ul>
+                <li>
+                    <p>Party Haus was a project conceived at <a href="http://news.immobilienscout24.de/tipps-der-redaktion/you-is-now-weekend-future-real-estate-hackathon-am-272829-maerz-2015,117079.html" target="_blank"> immobilienscout24.de </a>
+        hackathon weekend. With a team of developers and myself, we created a webtool that 
+        would sort through real estate to discover properties with high party potential.
+         Pulling on several APIs, 
+        we developed a custom, sortable party checklist for your new apartment. 
+        I was responsible for the overall User experience and the interface. 
+        Our team won a main prize-- a full scholarship to the <a href="http://fi.co/">Founder's Institute.</a></p>
+                </li>
+                <li><img u="image" src="party_haus_a.jpg" ></li>
+                <li><img u="image" src="party_haus_b.jpg" ></li> 
+            </ul>
         </div>
-        
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 13 css */
-            /*
-            .jssora13l                  (normal)
-            .jssora13r                  (normal)
-            .jssora13l:hover            (normal mouseover)
-            .jssora13r:hover            (normal mouseover)
-            .jssora13l.jssora13ldn      (mousedown)
-            .jssora13r.jssora13rdn      (mousedown)
-            */
-            .jssora13l, .jssora13r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 50px;
-                cursor: pointer;
-                background: url(a13.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora13l { background-position: -10px -35px; }
-            .jssora13r { background-position: -70px -35px; }
-            .jssora13l:hover { background-position: -130px -35px; }
-            .jssora13r:hover { background-position: -190px -35px; }
-            .jssora13l.jssora13ldn { background-position: -250px -35px; }
-            .jssora13r.jssora13rdn { background-position: -310px -35px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="top: 123px; right: 30px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">js slider</a>
-    </div>
 	
 	
 	<h3>Knowledge Design Studio - Children's Book Collection</h3>
-	<div id="slider5_container" style="position: relative; top: 0px; left: 0px; width: 650px;
-        height: 300px; overflow: hidden;">
-       
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 10px; width: 700px; height: 300px;
-            overflow: hidden;">
-         
-            <div><p>
-		ABC's For CBC's (Children's Book Collection). I designed this interface in keeping with the idea of 
-the Augmented Textbook. Mentoring by Johanna Drucker, Artist/Professor of Information Studies at UCLA. </p></div>
-            <div><img u="image" src="abc1.png" ></div>
-            <div><img u="image" src="abc2.png" ></div>
-            <div><img u="image" src="abc3.png" ></div>
-            <div><img u="image" src="abc4.png" ></div>
-            <div><img u="image" src="abc5.png" ></div>
-            <div><img u="image" src="abc6.png" ></div>
-            <div><img u="image" src="abc7.png" ></div>
-            <div><img u="image" src="abc8.png" ></div>
-         
+        <div class="slider">
+            <ul>
+                <li>
+                    <p>ABC's For CBC's (Children's Book Collection). I designed this interface in keeping with the idea of 
+    the Augmented Textbook. Mentoring by Johanna Drucker, Artist/Professor of Information Studies at UCLA. </p>
+                </li>
+                <li><img u="image" src="abc1.png" ></li>
+                <li><img u="image" src="abc2.png" ></li>
+                <li><img u="image" src="abc3.png" ></li>
+                <li><img u="image" src="abc4.png" ></li>
+                <li><img u="image" src="abc5.png" ></li>
+                <li><img u="image" src="abc6.png" ></li>
+                <li><img u="image" src="abc7.png" ></li>
+                <li><img u="image" src="abc8.png" ></li>
+            </ul>
         </div>
-        
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 13 css */
-            /*
-            .jssora13l                  (normal)
-            .jssora13r                  (normal)
-            .jssora13l:hover            (normal mouseover)
-            .jssora13r:hover            (normal mouseover)
-            .jssora13l.jssora13ldn      (mousedown)
-            .jssora13r.jssora13rdn      (mousedown)
-            */
-            .jssora13l, .jssora13r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 50px;
-                cursor: pointer;
-                background: url(a13.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora13l { background-position: -10px -35px; }
-            .jssora13r { background-position: -70px -35px; }
-            .jssora13l:hover { background-position: -130px -35px; }
-            .jssora13r:hover { background-position: -190px -35px; }
-            .jssora13l.jssora13ldn { background-position: -250px -35px; }
-            .jssora13r.jssora13rdn { background-position: -310px -35px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="top: 123px; right: 30px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">js slider</a>
-    </div>
 	
 	
 	<h3>Knowledge Design Studio - Baltimore: Reading Signs</h3>
-		<div id="slider6_container" style="position: relative; top: 0px; left: 0px; width: 650px;
-        height: 300px; overflow: hidden;">
-       
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 10px; width: 700px; height: 300px;
-            overflow: hidden;">
-         
-            <div><p>
-		BALTIMORE: READING SIGNS is a site-specific project surrounding affective cartography. We developed an 
+		<div class="slider">
+            <ul>
+                <li>
+                    <p>BALTIMORE: READING SIGNS is a site-specific project surrounding affective cartography. We developed an 
 interface for participants to log their experiences capturing images of signs in the city. Design-wise, we wanted to create
 a narrative from the results, to better understand them; to read more from a map than simply geography or city lines. 
-Mentoring by Johanna Drucker, Artist/Professor of Information Studies at UCLA.</p></div>
-            <div><img u="image" src="rs1.png" ></div>
-            <div><img u="image" src="rs2.png" ></div>
-            <div><img u="image" src="rs3.png" ></div>
-            <div><img u="image" src="rs4.png" ></div>
-            <div><img u="image" src="rs5.png" ></div>
-            <div><img u="image" src="rs6.png" ></div>
-            <div><img u="image" src="rs7.png" ></div>
-            <div><img u="image" src="rs8.png" ></div>
-            <div><img u="image" src="rs9.png" ></div>
-            <div><img u="image" src="rs10.png" ></div>
-            <div><img u="image" src="rs11.png" ></div>
-         
+Mentoring by Johanna Drucker, Artist/Professor of Information Studies at UCLA.</p>
+                </li>
+                <li><img u="image" src="rs1.png" ></li>
+                <li><img u="image" src="rs2.png" ></li>
+                <li><img u="image" src="rs3.png" ></li>
+                <li><img u="image" src="rs4.png" ></li>
+                <li><img u="image" src="rs5.png" ></li>
+                <li><img u="image" src="rs6.png" ></li>
+                <li><img u="image" src="rs7.png" ></li>
+                <li><img u="image" src="rs8.png" ></li>
+                <li><img u="image" src="rs9.png" ></li>
+                <li><img u="image" src="rs10.png" ></li>
+                <li><img u="image" src="rs11.png" ></li>
+            </ul> 
         </div>
-        
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 13 css */
-            /*
-            .jssora13l                  (normal)
-            .jssora13r                  (normal)
-            .jssora13l:hover            (normal mouseover)
-            .jssora13r:hover            (normal mouseover)
-            .jssora13l.jssora13ldn      (mousedown)
-            .jssora13r.jssora13rdn      (mousedown)
-            */
-            .jssora13l, .jssora13r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 50px;
-                cursor: pointer;
-                background: url(a13.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora13l { background-position: -10px -35px; }
-            .jssora13r { background-position: -70px -35px; }
-            .jssora13l:hover { background-position: -130px -35px; }
-            .jssora13r:hover { background-position: -190px -35px; }
-            .jssora13l.jssora13ldn { background-position: -250px -35px; }
-            .jssora13r.jssora13rdn { background-position: -310px -35px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="top: 123px; right: 30px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">js slider</a>
-    </div>
+    
     
     <h3>Jeffrey Gibson</h3>
-		<div id="slider4_container" style="position: relative; top: 0px; left: 0px; width: 650px;
-        height: 300px; overflow: hidden;">
-       
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 10px; width: 700px; height: 300px;
-            overflow: hidden;">
-         
-            <div><p>
-		Website for New York based artist Jeffrey Gibson. <a href="http://www.jeffreygibson.net" target="_blank"> www.jeffreygibson.net </a>  </p></div>
-            <div><img u="image" src="jg1.png" ></div>
-            <div><img u="image" src="jg2.png" ></div>
-            <div><img u="image" src="jg3.png" ></div>
-            <div><img u="image" src="jg4.png" ></div>
-            <div><img u="image" src="jg5.png" ></div>
-         
+		<div class="slider">
+            <ul>
+                <li>
+                    <p>Website for New York based artist Jeffrey Gibson. <a href="http://www.jeffreygibson.net" target="_blank"> www.jeffreygibson.net </a></p>
+                </li>
+                <li><img u="image" src="jg1.png" ></li>
+                <li><img u="image" src="jg2.png" ></li>
+                <li><img u="image" src="jg3.png" ></li>
+                <li><img u="image" src="jg4.png" ></li>
+                <li><img u="image" src="jg5.png" ></li>
         </div>
-        
-        <!--#region Arrow Navigator Skin Begin -->
-        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
-        <style>
-            /* jssor slider arrow navigator skin 13 css */
-            /*
-            .jssora13l                  (normal)
-            .jssora13r                  (normal)
-            .jssora13l:hover            (normal mouseover)
-            .jssora13r:hover            (normal mouseover)
-            .jssora13l.jssora13ldn      (mousedown)
-            .jssora13r.jssora13rdn      (mousedown)
-            */
-            .jssora13l, .jssora13r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 50px;
-                cursor: pointer;
-                background: url(a13.png) no-repeat;
-                overflow: hidden;
-            }
-            .jssora13l { background-position: -10px -35px; }
-            .jssora13r { background-position: -70px -35px; }
-            .jssora13l:hover { background-position: -130px -35px; }
-            .jssora13r:hover { background-position: -190px -35px; }
-            .jssora13l.jssora13ldn { background-position: -250px -35px; }
-            .jssora13r.jssora13rdn { background-position: -310px -35px; }
-        </style>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora13l" style="top: 123px; left: 30px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora13r" style="top: 123px; right: 30px;">
-        </span>
-        <!--#endregion Arrow Navigator Skin End -->
-        <a style="display: none" href="http://www.jssor.com">js slider</a>
-    </div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </div>
 
-
+<script>
+        $(function() {
+            $('.slider').unslider(
+                {speed: 500,               //  The speed to animate each slide (in milliseconds)
+                delay: 3000,              //  The delay between slide animations (in milliseconds)
+                complete: function() {},  //  A function that gets called after every slide animation
+                keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+                dots: true,               //  Display dot navigation
+                fluid: false,              //  Support responsive design. May break non-responsive designs);
+                            }
+            )
+        });
+    </script>
 </body>
 </html>
